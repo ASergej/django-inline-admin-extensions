@@ -81,11 +81,13 @@ class PaginationInline(admin.TabularInline):
 
     def get_ordering(self, request):
         ordering = super(PaginationInline, self).get_ordering(request)
+
         if self.order_param not in request.GET:
             return ordering
 
         ordering = []
         order_params = request.GET.getlist(self.order_param)
+
         for p in order_params:
             none, pfx, idx = p.rpartition('-')
             try:
@@ -93,4 +95,6 @@ class PaginationInline(admin.TabularInline):
                 ordering.append(p)
             except exceptions.FieldDoesNotExist:
                 pass
+        ordering.append('id')
+
         return ordering
