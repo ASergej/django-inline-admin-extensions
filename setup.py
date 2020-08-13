@@ -9,7 +9,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-inline-admin-extensions',
-    version='0.1',
+    version='0.1.1',
     packages=['inline_admin_extensions', 'inline_admin_extensions.templatetags'],
     include_package_data=True,
     license='BSD License',
@@ -33,6 +33,6 @@ setup(
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],
     install_requires=[
-        'Django>=1.8'
+        'Django>=3.0.1'
     ],
 )
